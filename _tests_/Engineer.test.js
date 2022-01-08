@@ -20,4 +20,10 @@ describe('Engineer', () => {
       expect(testEngineer.getEmail()).toEqual(check);
     });
   });
+  describe('github', () => {
+    it('calling getGithub() should return "GitHub: *****', () => {
+      const check = 'GitHub: johnny2077';
+      expect(testEngineer.getGithub()).toEqual(check);
+    });
+  });
 });
