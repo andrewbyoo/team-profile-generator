@@ -5,9 +5,9 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const generateHTML = require('./src/generateHTML');
-
 let teamArray = [];
 
+// Questions to be prompted by all new team members
 const employeeQuestions = [
   {
     type: 'input',
@@ -26,6 +26,8 @@ const employeeQuestions = [
   },
 ];
 
+// Questions to be prompted by new managers
+// Makes an array of questions from employeeQuestions and adds a new question
 const managerQuestions = employeeQuestions.concat([
   {
     type: 'input',
@@ -34,6 +36,7 @@ const managerQuestions = employeeQuestions.concat([
   }
 ]);
 
+// Function to add team members
 const getTeamMembers = () => {
   inquirer
     .prompt(
@@ -44,6 +47,8 @@ const getTeamMembers = () => {
       }
     )
     .then(function (response) {
+
+      // If yes is selected from the previous prompt, continue with adding a new team member, otherwise call function to generate the HTML
       if (response.addTeamMember === 'Yes') {
         const generateMember = function() {inquirer
           .prompt(
@@ -55,6 +60,8 @@ const getTeamMembers = () => {
             }
           )
           .then(function (response) {
+
+            // Prompt certain questions depending on the role previously chosen and add the new team member to the team array
             switch (response.memberRole) {
               case 'Employee':
                 inquirer
@@ -102,12 +109,16 @@ const getTeamMembers = () => {
           .catch(err => {console.log(err)});
         };
 
+        // Call generateMember function to prompt the user if they would like to add another member
         generateMember();
       } else {
+
+        // Call to generate the HTML
         return console.log("Call to generateHTML to be input here");
       };
     })
     .catch(err => {console.log(err)});
 };
 
+// Call to start the initialization process
 getTeamMembers();
