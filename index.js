@@ -60,7 +60,9 @@ const getTeamMembers = () => {
                       role: 'Employee'
                     }
                     teamArray.push(employee)
-                    return console.log(teamArray)
+                    console.log(teamArray)
+                    console.log(`${response.name} has been added to the team!`)
+                    return getTeamMembers();
                   })
                   .catch(err => {console.log(err)});
                 break;
