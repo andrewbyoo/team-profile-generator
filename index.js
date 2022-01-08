@@ -93,7 +93,6 @@ const getTeamMembers = () => {
                       role: 'Employee',
                     };
                     teamArray.push(employee);
-                    teamArray.sort((a, b) => a.role.localeCompare(b.role));
                     console.log(`${response.name} has been added to the team!`);
                     return getTeamMembers();
                   })
@@ -111,7 +110,6 @@ const getTeamMembers = () => {
                       role: 'Manager',
                     };
                     teamArray.push(manager);
-                    teamArray.sort((a, b) => a.role.localeCompare(b.role));
                     console.log(`${response.name} has been added to the team!`);
                     return getTeamMembers();
                   })
@@ -129,7 +127,6 @@ const getTeamMembers = () => {
                       role: 'Engineer',
                     };
                     teamArray.push(engineer);
-                    teamArray.sort((a, b) => a.role.localeCompare(b.role));
                     console.log(`${response.name} has been added to the team!`);
                     return getTeamMembers();
                   })
@@ -147,7 +144,6 @@ const getTeamMembers = () => {
                       role: 'Intern',
                     };
                     teamArray.push(intern);
-                    teamArray.sort((a, b) => a.role.localeCompare(b.role));
                     console.log(`${response.name} has been added to the team!`);
                     return getTeamMembers();
                   })
@@ -162,8 +158,10 @@ const getTeamMembers = () => {
         generateMember();
       } else {
 
+        teamArray.sort((a, b) => a.role.localeCompare(b.role));
+
         // Call to generate the HTML
-        return console.log("Call to generateHTML to be input here");
+        return console.log(teamArray);
       };
     })
     .catch(err => {console.log(err)});
