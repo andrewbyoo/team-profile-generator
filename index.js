@@ -7,7 +7,7 @@ const Intern = require('./lib/Intern');
 const generateHTML = require('./src/generateHTML');
 let teamArray = [];
 
-// Questions to be prompted by all new team members
+// Questions to be prompted for all new team members
 const employeeQuestions = [
   {
     type: 'input',
@@ -26,8 +26,8 @@ const employeeQuestions = [
   },
 ];
 
-// Questions to be prompted by new managers
-// Makes an array of questions from employeeQuestions and adds a new question
+// Question variables for managers, engineers, and interns makes an array of questions from employeeQuestions and adds a new question
+// Questions to be prompted for new managers
 const managerQuestions = employeeQuestions.concat([
   {
     type: 'input',
@@ -36,6 +36,7 @@ const managerQuestions = employeeQuestions.concat([
   },
 ]);
 
+// Questions to be prompted for new engineers
 const engineerQuestions = employeeQuestions.concat([
   {
     type: 'input',
@@ -44,6 +45,7 @@ const engineerQuestions = employeeQuestions.concat([
   },
 ]);
 
+// Questions to be prompted for new interns
 const internQuestions = employeeQuestions.concat([
   {
     type: 'input',
