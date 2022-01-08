@@ -33,7 +33,15 @@ const managerQuestions = employeeQuestions.concat([
     type: 'input',
     name: 'officeNumber',
     message: 'What is the team member\'s office number?',
-  }
+  },
+]);
+
+const engineerQuestions = employeeQuestions.concat([
+  {
+    type: 'input',
+    name: 'github',
+    message: 'What is the team member\'s github username?',
+  },
 ]);
 
 // Function to add team members
