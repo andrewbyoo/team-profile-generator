@@ -26,4 +26,10 @@ describe('Engineer', () => {
       expect(testEngineer.getGithub()).toEqual(check);
     });
   });
+  describe('role', () => {
+    it('calling getRole() should return the class name', () => {
+      const check = 'Engineer';
+      expect(testEngineer.getRole()).toEqual(check);
+    });
+  });
 });
