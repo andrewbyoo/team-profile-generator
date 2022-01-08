@@ -20,4 +20,10 @@ describe('Intern', () => {
       expect(testIntern.getEmail()).toEqual(check);
     });
   });
+  describe('school', () => {
+    it('calling getSchool() should return "School: *****', () => {
+      const check = 'School: The Matrix';
+      expect(testIntern.getSchool()).toEqual(check);
+    });
+  });
 });
