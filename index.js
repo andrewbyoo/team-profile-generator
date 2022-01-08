@@ -50,7 +50,7 @@ const getTeamMembers = () => {
             switch (response.memberRole) {
               case 'Employee':
                 inquirer
-                  .prompt(employeeQuestions)
+                  .prompt(employeeQuestions);
                 break;
               case 'Manager':
 
@@ -63,6 +63,7 @@ const getTeamMembers = () => {
                 break;
             }
           })
+          .catch(err => {console.log(err)});
         };
 
         generateMember();
