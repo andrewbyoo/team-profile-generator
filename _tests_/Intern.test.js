@@ -14,4 +14,10 @@ describe('Intern', () => {
       expect(testIntern.getId()).toEqual(check);
     });
   });
+  describe('email', () => {
+    it('calling getEmail() should return "Email: @@@@@"', () => {
+      const check = 'Email: neo@example.com';
+      expect(testIntern.getEmail()).toEqual(check);
+    });
+  });
 });
