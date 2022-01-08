@@ -124,7 +124,7 @@ const getTeamMembers = () => {
                       name: response.name,
                       id: response.id,
                       email: response.email,
-                      github: response.github,
+                      school: response.school,
                       role: 'Intern'
                     };
                     teamArray.push(intern);
