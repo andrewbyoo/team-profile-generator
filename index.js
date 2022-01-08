@@ -79,7 +79,7 @@ const getTeamMembers = () => {
           )
           .then(function (response) {
 
-            // Prompt certain questions depending on the role previously chosen and add the new team member to the team array
+            // Prompt certain questions depending on the role previously chosen and add the new team member as an object to the team array and sort the team array so that members with like roles are listed together
             switch (response.memberRole) {
               case 'Employee':
                 inquirer
