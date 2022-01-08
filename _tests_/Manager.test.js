@@ -2,6 +2,24 @@ const Manager = require('../lib/Manager');
 
 describe('Manager', () => {
   const testManager = new Manager('Keanu Reeves', '299', 'keanu@example.com', '3');
+  describe('name', () => {
+    it('calling getName() should return each name capitalized', () => {
+      const check = 'Keanu Reeves';
+      expect(testManager.name).toEqual(check);
+    });
+  });
+  describe('id', () => {
+    it('calling getId() should return "ID: ###"', () => {
+      const check = 'ID: 299';
+      expect(testManager.getId()).toEqual(check);
+    });
+  });
+  describe('email', () => {
+    it('calling getEmail() should return "Email: @@@@@"', () => {
+      const check = 'Email: keanu@example.com';
+      expect(testManager.getEmail()).toEqual(check);
+    });
+  });
   describe('office number', () => {
     it('calling getOfficeNumber() should return "Office Number: ###"', () => {
       const check = 'Office Number: 3';
