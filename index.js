@@ -44,6 +44,14 @@ const engineerQuestions = employeeQuestions.concat([
   },
 ]);
 
+const internQuestions = employeeQuestions.concat([
+  {
+    type: 'input',
+    name: 'school',
+    message: 'What school is the team member from?',
+  },
+]);
+
 // Function to add team members
 const getTeamMembers = () => {
   inquirer
