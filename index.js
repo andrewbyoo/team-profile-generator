@@ -82,7 +82,7 @@ const getTeamMembers = () => {
 
         generateMember();
       } else {
-        return "Call to generateHTML to be input here"
+        return console.log("Call to generateHTML to be input here")
       }
     })
     .catch(err => {console.log(err)});
