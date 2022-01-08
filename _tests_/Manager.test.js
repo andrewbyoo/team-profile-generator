@@ -7,5 +7,11 @@ describe('Manager', () => {
       const check = 'Office Number: 3';
       expect(testManager.getOfficeNumber()).toEqual(check);
     });
-  })
-})
+  });
+  describe('role', () => {
+    it('calling getRole() should return the class name', () => {
+      const check = 'Manager';
+      expect(testManager.getRole()).toEqual(check);
+    });
+  });
+});
