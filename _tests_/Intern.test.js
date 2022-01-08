@@ -26,4 +26,10 @@ describe('Intern', () => {
       expect(testIntern.getSchool()).toEqual(check);
     });
   });
+  describe('role', () => {
+    it('calling getRole() should return the class name', () => {
+      const check = 'Intern';
+      expect(testIntern.getRole()).toEqual(check);
+    });
+  });
 });
