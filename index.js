@@ -157,6 +157,17 @@ const getTeamMembers = () => {
         // Call generateMember function to prompt the user if they would like to add another member
         generateMember();
       } else {
+        inquirer
+          .prompt(
+            {
+              type: 'list',
+              name: 'sortStyle',
+              message: 'Which property would you like the members to be sorted by?',
+              choices: ['Name', 'Id number', 'Role'],
+            },
+          )
+          .then(function (response) {})
+          .catch(err => {console.log(err)});
         // Sorts team members in order of Manager, Engineer, Employee, then Intern
         let sortedArray = [];
         for (let i = 0; i < teamArray.length; i++) {if (teamArray[i].role == 'Manager') {sortedArray.push(teamArray[i])}};
