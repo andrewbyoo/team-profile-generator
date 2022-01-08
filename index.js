@@ -37,7 +37,7 @@ const getTeamMembers = () => {
       let teamArray = [];
 
       if (response.addTeamMember === 'Yes') {
-        inquirer
+        const generateMember = function() {inquirer
           .prompt(
             {
               type: 'list',
@@ -46,6 +46,23 @@ const getTeamMembers = () => {
               choices: ['Employee', 'Manager', 'Engineer', 'Intern'],
             }
           )
+          .then(function (response) {
+            switch (response.memberRole) {
+              case 'Employee':
+
+                break;
+              case 'Manager':
+
+                break;
+              case 'Engineer':
+
+                break;
+              case 'Intern':
+
+                break;
+            }
+          })
+        };
       } else {
         return "Call to generateHTML to be input here"
       }
