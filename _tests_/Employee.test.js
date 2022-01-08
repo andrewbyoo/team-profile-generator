@@ -31,7 +31,13 @@ describe('Employee', () => {
     });
     it('calling getEmail() should return "Email: @@@@@"', () => {
       const check = 'Email: johnTestEmail@example.com';
-      expect(testEmployee.getEmail()).toEqual(check)
+      expect(testEmployee.getEmail()).toEqual(check);
     });
   });
+  describe('role', () => {
+    it('calling getRole() should return the role', () => {
+      const check = 'Employee';
+      expect(testEmployee.getRole()).toEqual(check);
+    });
+  })
 })
