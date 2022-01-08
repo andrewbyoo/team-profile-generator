@@ -24,7 +24,15 @@ const employeeQuestions = [
     name: 'email',
     message: 'What is the team member\'s email address?',
   },
-]
+];
+
+const managerQuestions = employeeQuestions.concat([
+  {
+    type: 'input',
+    name: 'officeNumber',
+    message: 'What is the team member\'s office number?',
+  }
+]);
 
 const getTeamMembers = () => {
   inquirer
@@ -36,7 +44,6 @@ const getTeamMembers = () => {
       }
     )
     .then(function (response) {
-
       if (response.addTeamMember === 'Yes') {
         const generateMember = function() {inquirer
           .prompt(
@@ -58,16 +65,29 @@ const getTeamMembers = () => {
                       id: response.id,
                       email: response.email,
                       role: 'Employee'
-                    }
-                    teamArray.push(employee)
-                    console.log(teamArray)
-                    console.log(`${response.name} has been added to the team!`)
+                    };
+                    teamArray.push(employee);
+                    console.log(`${response.name} has been added to the team!`);
                     return getTeamMembers();
                   })
                   .catch(err => {console.log(err)});
                 break;
               case 'Manager':
-
+                inquirer
+                  .prompt(managerQuestions)
+                  .then(function (response) {
+                    const manager = {
+                      name: response.name,
+                      id: response.id,
+                      email: response.email,
+                      officeNumber: response.officeNumber,
+                      role: 'Manager'
+                    };
+                    teamArray.push(manager);
+                    console.log(`${response.name} has been added to the team!`);
+                    return getTeamMembers();
+                  })
+                  .catch(err => {console.log(err)});
                 break;
               case 'Engineer':
 
@@ -75,15 +95,15 @@ const getTeamMembers = () => {
               case 'Intern':
 
                 break;
-            }
+            };
           })
           .catch(err => {console.log(err)});
         };
 
         generateMember();
       } else {
-        return console.log("Call to generateHTML to be input here")
-      }
+        return console.log("Call to generateHTML to be input here");
+      };
     })
     .catch(err => {console.log(err)});
 };
