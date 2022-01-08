@@ -24,4 +24,19 @@ const employeeQuestions = [
   },
 ]
 
-const getTeamMembers = function ()
+const getTeamMembers = () => {
+  inquirer
+    .prompt([
+      {
+        type: 'input',
+        name: 'addTeamMember',
+        message: 'Would you like to add a team member?',
+      },
+      {
+        type: 'list',
+        name: 'memberRole',
+        message: 'What is the team member\'s role?',
+        choices: ['Employee', 'Manager', 'Engineer', 'Intern'],
+      },
+    ])
+}
