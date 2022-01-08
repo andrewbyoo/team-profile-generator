@@ -39,5 +39,5 @@ describe('Employee', () => {
       const check = 'Employee';
       expect(testEmployee.getRole()).toEqual(check);
     });
-  })
-})
+  });
+});
