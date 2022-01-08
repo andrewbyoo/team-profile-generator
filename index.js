@@ -50,7 +50,9 @@ const getTeamMembers = () => {
             switch (response.memberRole) {
               case 'Employee':
                 inquirer
-                  .prompt(employeeQuestions);
+                  .prompt(employeeQuestions)
+                  .then(function (response) {teamArray.concat(response)})
+                  .catch(err => {console.log(err)});
                 break;
               case 'Manager':
 
