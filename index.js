@@ -157,10 +157,15 @@ const getTeamMembers = () => {
         // Call generateMember function to prompt the user if they would like to add another member
         generateMember();
       } else {
-
-        teamArray.sort((a, b) => a.role.localeCompare(b.role));
+        // Sorts team members in order of Manager, Engineer, Employee, then Intern
+        let sortedArray = [];
+        for (let i = 0; i < teamArray.length; i++) {if (teamArray[i].role == 'Manager') {sortedArray.push(teamArray[i])}};
+        for (let i = 0; i < teamArray.length; i++) {if (teamArray[i].role == 'Engineer') {sortedArray.push(teamArray[i])}};
+        for (let i = 0; i < teamArray.length; i++) {if (teamArray[i].role == 'Employee') {sortedArray.push(teamArray[i])}};
+        for (let i = 0; i < teamArray.length; i++) {if (teamArray[i].role == 'Intern') {sortedArray.push(teamArray[i])}};
 
         // Call to generate the HTML
+        teamArray = sortedArray
         return console.log(teamArray);
       };
     })
