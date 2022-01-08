@@ -49,7 +49,8 @@ const getTeamMembers = () => {
           .then(function (response) {
             switch (response.memberRole) {
               case 'Employee':
-
+                inquirer
+                  .prompt(employeeQuestions)
                 break;
               case 'Manager':
 
@@ -63,6 +64,8 @@ const getTeamMembers = () => {
             }
           })
         };
+
+        generateMember();
       } else {
         return "Call to generateHTML to be input here"
       }
