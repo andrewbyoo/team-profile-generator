@@ -14,4 +14,10 @@ describe('Engineer', () => {
       expect(testEngineer.getId()).toEqual(check);
     });
   });
+  describe('email', () => {
+    it('calling getEmail() should return "Email: @@@@@"', () => {
+      const check = 'Email: silverhand@example.com';
+      expect(testEngineer.getEmail()).toEqual(check);
+    });
+  });
 });
