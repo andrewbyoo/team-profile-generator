@@ -166,14 +166,24 @@ const getTeamMembers = () => {
               choices: ['Name', 'Id number', 'Role'],
             },
           )
-          .then(function (response) {})
+          .then(function (response) {
+            switch (response) {
+              case 'Name':
+
+                break;
+              case 'Id number':
+                break;
+              case 'Role':
+                // Sorts team members in order of Manager, Engineer, Employee, then Intern
+                let sortedArray = [];
+                for (let i = 0; i < teamArray.length; i++) {if (teamArray[i].role == 'Manager') {sortedArray.push(teamArray[i])}};
+                for (let i = 0; i < teamArray.length; i++) {if (teamArray[i].role == 'Engineer') {sortedArray.push(teamArray[i])}};
+                for (let i = 0; i < teamArray.length; i++) {if (teamArray[i].role == 'Employee') {sortedArray.push(teamArray[i])}};
+                for (let i = 0; i < teamArray.length; i++) {if (teamArray[i].role == 'Intern') {sortedArray.push(teamArray[i])}};
+                break;
+            }
+          })
           .catch(err => {console.log(err)});
-        // Sorts team members in order of Manager, Engineer, Employee, then Intern
-        let sortedArray = [];
-        for (let i = 0; i < teamArray.length; i++) {if (teamArray[i].role == 'Manager') {sortedArray.push(teamArray[i])}};
-        for (let i = 0; i < teamArray.length; i++) {if (teamArray[i].role == 'Engineer') {sortedArray.push(teamArray[i])}};
-        for (let i = 0; i < teamArray.length; i++) {if (teamArray[i].role == 'Employee') {sortedArray.push(teamArray[i])}};
-        for (let i = 0; i < teamArray.length; i++) {if (teamArray[i].role == 'Intern') {sortedArray.push(teamArray[i])}};
 
         // Call to generate the HTML
         teamArray = sortedArray
