@@ -67,6 +67,7 @@ const getTeamMembers = () => {
                       role: 'Employee'
                     };
                     teamArray.push(employee);
+                    teamArray.sort((a, b) => a.role.localeCompare(b.role));
                     console.log(`${response.name} has been added to the team!`);
                     return getTeamMembers();
                   })
@@ -84,6 +85,7 @@ const getTeamMembers = () => {
                       role: 'Manager'
                     };
                     teamArray.push(manager);
+                    teamArray.sort((a, b) => a.role.localeCompare(b.role));
                     console.log(`${response.name} has been added to the team!`);
                     return getTeamMembers();
                   })
