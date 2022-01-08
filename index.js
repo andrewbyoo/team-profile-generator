@@ -59,10 +59,11 @@ const getTeamMembers = () => {
   inquirer
     .prompt(
       {
-        type: 'input',
+        type: 'list',
         name: 'addTeamMember',
         message: 'Would you like to add a team member?',
-      }
+        choices: ['Yes', 'No'],
+      },
     )
     .then(function (response) {
 
@@ -75,7 +76,7 @@ const getTeamMembers = () => {
               name: 'memberRole',
               message: 'What is the team member\'s role?',
               choices: ['Employee', 'Manager', 'Engineer', 'Intern'],
-            }
+            },
           )
           .then(function (response) {
 
@@ -89,7 +90,7 @@ const getTeamMembers = () => {
                       name: response.name,
                       id: response.id,
                       email: response.email,
-                      role: 'Employee'
+                      role: 'Employee',
                     };
                     teamArray.push(employee);
                     teamArray.sort((a, b) => a.role.localeCompare(b.role));
@@ -107,7 +108,7 @@ const getTeamMembers = () => {
                       id: response.id,
                       email: response.email,
                       officeNumber: response.officeNumber,
-                      role: 'Manager'
+                      role: 'Manager',
                     };
                     teamArray.push(manager);
                     teamArray.sort((a, b) => a.role.localeCompare(b.role));
@@ -125,7 +126,7 @@ const getTeamMembers = () => {
                       id: response.id,
                       email: response.email,
                       github: response.github,
-                      role: 'Engineer'
+                      role: 'Engineer',
                     };
                     teamArray.push(engineer);
                     teamArray.sort((a, b) => a.role.localeCompare(b.role));
@@ -143,7 +144,7 @@ const getTeamMembers = () => {
                       id: response.id,
                       email: response.email,
                       school: response.school,
-                      role: 'Intern'
+                      role: 'Intern',
                     };
                     teamArray.push(intern);
                     teamArray.sort((a, b) => a.role.localeCompare(b.role));
