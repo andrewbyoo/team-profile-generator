@@ -35,7 +35,7 @@ describe('Employee', () => {
     });
   });
   describe('role', () => {
-    it('calling getRole() should return the role', () => {
+    it('calling getRole() should return the class name', () => {
       const check = 'Employee';
       expect(testEmployee.getRole()).toEqual(check);
     });
