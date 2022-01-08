@@ -26,17 +26,31 @@ const employeeQuestions = [
 
 const getTeamMembers = () => {
   inquirer
-    .prompt([
+    .prompt(
       {
         type: 'input',
         name: 'addTeamMember',
         message: 'Would you like to add a team member?',
-      },
-      {
-        type: 'list',
-        name: 'memberRole',
-        message: 'What is the team member\'s role?',
-        choices: ['Employee', 'Manager', 'Engineer', 'Intern'],
-      },
-    ])
-}
+      }
+    )
+    .then(function (response) {
+      let teamArray = [];
+
+      if (response.addTeamMember === 'Yes') {
+        inquirer
+          .prompt(
+            {
+              type: 'list',
+              name: 'memberRole',
+              message: 'What is the team member\'s role?',
+              choices: ['Employee', 'Manager', 'Engineer', 'Intern'],
+            }
+          )
+      } else {
+        return "Call to generateHTML to be input here"
+      }
+    })
+    .catch(err => {console.log(err)});
+};
+
+getTeamMembers();
