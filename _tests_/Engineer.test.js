@@ -8,4 +8,10 @@ describe('Engineer', () => {
       expect(testEngineer.name).toEqual(check);
     });
   });
+  describe('id', () => {
+    it('calling getId() should return "ID: ###"', () => {
+      const check = 'ID: 2077';
+      expect(testEngineer.getId()).toEqual(check);
+    });
+  });
 });
