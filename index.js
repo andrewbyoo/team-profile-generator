@@ -117,7 +117,22 @@ const getTeamMembers = () => {
                   .catch(err => {console.log(err)});
                 break;
               case 'Intern':
-
+                inquirer
+                  .prompt(internQuestions)
+                  .then(function (response) {
+                    const intern = {
+                      name: response.name,
+                      id: response.id,
+                      email: response.email,
+                      github: response.github,
+                      role: 'Intern'
+                    };
+                    teamArray.push(intern);
+                    teamArray.sort((a, b) => a.role.localeCompare(b.role));
+                    console.log(`${response.name} has been added to the team!`);
+                    return getTeamMembers();
+                  })
+                  .catch(err => {console.log(err)});
                 break;
             };
           })
