@@ -99,7 +99,22 @@ const getTeamMembers = () => {
                   .catch(err => {console.log(err)});
                 break;
               case 'Engineer':
-
+                inquirer
+                  .prompt(engineerQuestions)
+                  .then(function (response) {
+                    const engineer = {
+                      name: response.name,
+                      id: response.id,
+                      email: response.email,
+                      github: response.github,
+                      role: 'Engineer'
+                    };
+                    teamArray.push(engineer);
+                    teamArray.sort((a, b) => a.role.localeCompare(b.role));
+                    console.log(`${response.name} has been added to the team!`);
+                    return getTeamMembers();
+                  })
+                  .catch(err => {console.log(err)});
                 break;
               case 'Intern':
 
