@@ -6,6 +6,8 @@ const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const generateHTML = require('./src/generateHTML');
 
+let teamArray = [];
+
 const employeeQuestions = [
   {
     type: 'input',
@@ -34,7 +36,6 @@ const getTeamMembers = () => {
       }
     )
     .then(function (response) {
-      let teamArray = [];
 
       if (response.addTeamMember === 'Yes') {
         const generateMember = function() {inquirer
@@ -51,7 +52,16 @@ const getTeamMembers = () => {
               case 'Employee':
                 inquirer
                   .prompt(employeeQuestions)
-                  .then(function (response) {teamArray.concat(response)})
+                  .then(function (response) {
+                    const employee = {
+                      name: response.name,
+                      id: response.id,
+                      email: response.email,
+                      role: 'Employee'
+                    }
+                    teamArray.push(employee)
+                    return console.log(teamArray)
+                  })
                   .catch(err => {console.log(err)});
                 break;
               case 'Manager':
