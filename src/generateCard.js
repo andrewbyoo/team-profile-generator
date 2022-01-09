@@ -6,7 +6,7 @@ const allCards = data => {
 }
 
 const generateCard = data => {
-  fs.writeFile('card-index.html', '', (err) => err ? console.error(err) : console.log('card-index has been initiated!'));
+  fs.writeFile('card-index.html', '<main></main>', (err) => err ? console.error(err) : console.log('card-index has been initiated!'));
   for (let i = 0; i < data.length; i++) {
     const teamMember = data[i]
     let roleSpecific = '';
