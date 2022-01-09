@@ -202,7 +202,7 @@ const getTeamMembers = () => {
             };
 
             // If sort is by role, redefine teamArray as sortedArray
-            if (response.sortStole === 'Role') {teamArray = sortedArray};
+            if (response.sortStyle === 'Role') {teamArray = sortedArray};
 
             // Call to generate HTML should be in this return
             return writeToHTML(teamArray);
