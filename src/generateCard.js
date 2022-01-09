@@ -1,9 +1,11 @@
 const generateCards = data => {
   let allCards = ``;
 
+  // For every object in the data array, creates card template literal
   data.forEach(function (data) {
     let roleSpecific = '';
 
+    // Adjusts the role specific information to whichever role the object is
     switch (data.role) {
       case 'Employee':
         roleSpecific = '';
@@ -19,6 +21,7 @@ const generateCards = data => {
         break;
     };
 
+    // Template for each team member
     let card = `
     <article class="card shadow-lg" style="width: 20rem;">
       <section class="card-header">
@@ -31,6 +34,8 @@ const generateCards = data => {
         <li class="list-group-item">${roleSpecific}</li>
       </ul>
     </article>`;
+
+    // Whenever a team member card is generated, it will get added to the allCards template literal
     allCards = allCards + card;
   });
   return allCards;
