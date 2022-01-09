@@ -56,12 +56,14 @@ const internQuestions = employeeQuestions.concat([
   },
 ]);
 
+// Creates an HTML file in the dist folder by calling on the generateHTML.js and generateCard.js files in the src folder
 const writeToHTML = data => {
   const fullHTML = generateBeforeCards + generateCard.generateCards(data) + generateAfterCards;
   fs.writeFile('./dist/index.html', fullHTML, (err) => err ? console.error(err) : console.log('Team index.html has been generated!'));
   writeToCSS();
 };
 
+// Creates a CSS file in the dist folder by calling on the generateCSS.js file in the src folder
 const writeToCSS = () => {
   fs.writeFile('./dist/style.css', generateCSS.generateCSS, (err) => err ? console.error(err) : console.log('Stylesheet has been generated!'))
 }
@@ -210,7 +212,7 @@ const getTeamMembers = () => {
             // If sort is by role, redefine teamArray as sortedArray
             if (response.sortStyle === 'Role') {teamArray = sortedArray};
 
-            // Call to generate HTML should be in this return
+            // Call to generate the HTML and CSS file
             return writeToHTML(teamArray);
           })
           .catch(err => {console.log(err)});
