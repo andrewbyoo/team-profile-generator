@@ -9,13 +9,13 @@ const generateCards = data => {
         roleSpecific = '';
         break;
       case 'Manager':
-        roleSpecific = `Office Number: ${data.officeNumber}`;
+        roleSpecific = `${data.officeNumber}`;
         break;
       case 'Engineer':
-        roleSpecific = `GitHub: ${data.github}`;
+        roleSpecific = `${data.github}`;
         break;
       case 'Intern':
-        roleSpecific = `School: ${data.school}`;
+        roleSpecific = `${data.school}`;
         break;
     };
 
@@ -26,8 +26,8 @@ const generateCards = data => {
         <p class="memberRole">${data.role}</p>
       </section>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">ID: ${data.id}</li>
-        <li class="list-group-item">Email: ${data.email}</li>
+        <li class="list-group-item">${data.id}</li>
+        <li class="list-group-item">${data.email}</li>
         <li class="list-group-item">${roleSpecific}</li>
       </ul>
     </article>`;
