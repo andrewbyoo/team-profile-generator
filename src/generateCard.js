@@ -11,6 +11,21 @@ const generateCard = data => {
     const teamMember = data[i]
     let roleSpecific = '';
 
+    switch (teamMember.role) {
+      case 'Employee':
+        roleSpecific = '';
+        break;
+      case 'Manager':
+        roleSpecific = `Office Number: ${teamMember.officeNumber}`;
+        break;
+      case 'Engineer':
+        roleSpecific = `GitHub: ${teamMember.github}`;
+        break;
+      case 'Intern':
+        roleSpecific = `School: ${teamMember.school}`;
+        break;
+    }
+
     const card = `<article class="card" style="width: 20rem;">
   <section class="card-header">
     <h2 class="memberName">${teamMember.name}</h2>
