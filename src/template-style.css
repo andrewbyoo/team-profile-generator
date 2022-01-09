@@ -19,6 +19,16 @@ body {
 .card-header {
   background-color: #CE4646;
   color: #ffffff;
+  text-align: center;
+}
+
+.memberName {
+  font-size: 30px;
+  font-family: 'Kalam';
+}
+
+.memberRole {
+  font-size: 25px;
 }
 
 .list-group-item {
