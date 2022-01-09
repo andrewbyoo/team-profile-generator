@@ -14,7 +14,7 @@ const generateCards = data => {
         roleSpecific = `${data.officeNumber}`;
         break;
       case 'Engineer':
-        roleSpecific = `${data.github}`;
+        roleSpecific = `<a href="https://github.com/${data.github}">${data.github}</a>`;
         break;
       case 'Intern':
         roleSpecific = `${data.school}`;
@@ -30,7 +30,7 @@ const generateCards = data => {
       </section>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">${data.id}</li>
-        <li class="list-group-item">${data.email}</li>
+        <li class="list-group-item">Email: <a href="mailto:${data.email}">${data.email}</a></li>
         <li class="list-group-item">${roleSpecific}</li>
       </ul>
     </article>`;
