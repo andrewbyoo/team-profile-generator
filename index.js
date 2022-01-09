@@ -56,7 +56,8 @@ const internQuestions = employeeQuestions.concat([
 ]);
 
 const writeToHTML = data => {
-  generateCard.generateCards(data);
+  const fullHTML = generateHTML.generateBeforeCards + generateCard.generateCards(data) + generateHTML.generateAfterCards;
+  fs.writeFile('./dist/index.html', fullHTML, (err) => err ? console.error(err) : console.log('Team index.html has been generated!'))
 }
 
 // Function to add team members
