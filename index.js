@@ -98,7 +98,7 @@ const getTeamMembers = () => {
                 inquirer
                   .prompt(managerQuestions)
                   .then(function (response) {
-                    const {name, id, email} = response
+                    const {name, id, email, officeNumber} = response
                     const manager = new Manager(name, id, email, officeNumber);
                     teamArray.push(manager);
                     console.log(`${name} has been added to the team!`);
@@ -110,7 +110,7 @@ const getTeamMembers = () => {
                 inquirer
                   .prompt(engineerQuestions)
                   .then(function (response) {
-                    const {name, id, email} = response
+                    const {name, id, email, github} = response
                     const engineer = new Engineer(name, id, email, github);
                     teamArray.push(engineer);
                     console.log(`${name} has been added to the team!`);
@@ -122,7 +122,7 @@ const getTeamMembers = () => {
                 inquirer
                   .prompt(internQuestions)
                   .then(function (response) {
-                    const {name, id, email} = response
+                    const {name, id, email, school} = response
                     const intern = new Intern(name, id, email, school);
                     teamArray.push(intern);
                     console.log(`${name} has been added to the team!`);
