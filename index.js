@@ -4,7 +4,7 @@ const Employee = require('./lib/Employee');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
-const generateHTML = require('./src/generateHTML');
+const {generateBeforeCards, generateAfterCards} = require('./src/generateHTML');
 const generateCard = require('./src/generateCard');
 let teamArray = [];
 
@@ -56,7 +56,7 @@ const internQuestions = employeeQuestions.concat([
 ]);
 
 const writeToHTML = data => {
-  const fullHTML = generateHTML.generateBeforeCards + generateCard.generateCards(data) + generateHTML.generateAfterCards;
+  const fullHTML = generateBeforeCards + generateCard.generateCards(data) + generateAfterCards;
   fs.writeFile('./dist/index.html', fullHTML, (err) => err ? console.error(err) : console.log('Team index.html has been generated!'))
 }
 
