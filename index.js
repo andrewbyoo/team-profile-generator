@@ -94,8 +94,13 @@ const getTeamMembers = () => {
                   .then(function (response) {
                     const {name, id, email} = response;
                     const employee = new Employee(name, id, email);
-                    employee.role = 'Employee';
-                    teamArray.push(employee);
+                    const employeeObject = {
+                      name: employee.getName(),
+                      id: employee.getId(),
+                      email: employee.getEmail(),
+                      role: employee.getRole(),
+                    };
+                    teamArray.push(employeeObject);
                     console.log(`${name} has been added to the team!`);
                     return getTeamMembers();
                   })
@@ -107,8 +112,14 @@ const getTeamMembers = () => {
                   .then(function (response) {
                     const {name, id, email, officeNumber} = response;
                     const manager = new Manager(name, id, email, officeNumber);
-                    manager.role = 'Manager';
-                    teamArray.push(manager);
+                    const managerObject = {
+                      name: manager.getName(),
+                      id: manager.getId(),
+                      email: manager.getEmail(),
+                      officeNumber: manager.getOfficeNumber(),
+                      role: manager.getRole(),
+                    };
+                    teamArray.push(managerObject);
                     console.log(`${name} has been added to the team!`);
                     return getTeamMembers();
                   })
@@ -120,8 +131,14 @@ const getTeamMembers = () => {
                   .then(function (response) {
                     const {name, id, email, github} = response;
                     const engineer = new Engineer(name, id, email, github);
-                    engineer.role = 'Engineer';
-                    teamArray.push(engineer);
+                    const engineerObject = {
+                      name: engineer.getName(),
+                      id: engineer.getId(),
+                      email: engineer.getEmail(),
+                      github: engineer.getGithub(),
+                      role: engineer.getRole(),
+                    };
+                    teamArray.push(engineerObject);
                     console.log(`${name} has been added to the team!`);
                     return getTeamMembers();
                   })
@@ -133,8 +150,14 @@ const getTeamMembers = () => {
                   .then(function (response) {
                     const {name, id, email, school} = response;
                     const intern = new Intern(name, id, email, school);
-                    intern.role = 'Intern';
-                    teamArray.push(intern);
+                    const internObject = {
+                      name: intern.getName(),
+                      id: intern.getId(),
+                      email: intern.getEmail(),
+                      school: intern.getSchool(),
+                      role: intern.getRole(),
+                    };
+                    teamArray.push(internObject);
                     console.log(`${name} has been added to the team!`);
                     return getTeamMembers();
                   })
@@ -179,7 +202,7 @@ const getTeamMembers = () => {
             };
 
             // If sort is by role, redefine teamArray as sortedArray
-            (response.sortStyle === 'Role') ? (teamArray = sortedArray) : console.log('Sorted by name or id');
+            if (response.sortStole === 'Role') {teamArray = sortedArray};
 
             // Call to generate HTML should be in this return
             return writeToHTML(teamArray);
