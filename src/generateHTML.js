@@ -1,5 +1,5 @@
 const generateBeforeCards = () => {
-  const beforeCards = `<!DOCTYPE html>
+return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -19,15 +19,15 @@ const generateBeforeCards = () => {
 
 <body>
   <main class="d-flex flex-wrap p-2 bd-highlight justify-content-center">`;
-  return beforeCards;
 }
 
 const generateAfterCards = () => {
-  const afterCards = `  </main>
+return `  </main>
 </body>
 </html>`;
-  return afterCards;
 }
 
-module.exports = {generateBeforeCards};
-module.exports = {generateAfterCards};
+module.exports = {
+  generateBeforeCards: generateBeforeCards,
+  generateAfterCards: generateAfterCards,
+};
