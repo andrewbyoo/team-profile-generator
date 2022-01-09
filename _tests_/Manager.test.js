@@ -16,7 +16,7 @@ describe('Manager', () => {
   });
   describe('email', () => {
     it('calling getEmail() should return "Email: @@@@@"', () => {
-      const check = 'Email: keanu@example.com';
+      const check = 'keanu@example.com';
       expect(testManager.getEmail()).toEqual(check);
     });
   });
