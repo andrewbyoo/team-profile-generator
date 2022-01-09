@@ -1,5 +1,4 @@
-const generateBeforeCards = () => {
-return `<!DOCTYPE html>
+const generateBeforeCards = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -19,13 +18,12 @@ return `<!DOCTYPE html>
 
 <body>
   <main class="d-flex flex-wrap p-2 bd-highlight justify-content-center">`;
-}
 
-const generateAfterCards = () => {
-return `  </main>
+const generateAfterCards =`
+  </main>
 </body>
 </html>`;
-}
+
 
 module.exports = {
   generateBeforeCards: generateBeforeCards,
