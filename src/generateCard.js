@@ -14,7 +14,7 @@ const generateCards = data => {
         roleSpecific = `${data.officeNumber}`;
         break;
       case 'Engineer':
-        roleSpecific = `<a href="https://github.com/${data.github}">${data.github}</a>`;
+        roleSpecific = `GitHub: <a href="https://github.com/${data.github}">${data.github}</a>`;
         break;
       case 'Intern':
         roleSpecific = `${data.school}`;
