@@ -86,14 +86,10 @@ const getTeamMembers = () => {
                 inquirer
                   .prompt(employeeQuestions)
                   .then(function (response) {
-                    const employee = {
-                      name: response.name,
-                      id: response.id,
-                      email: response.email,
-                      role: 'Employee',
-                    };
+                    const {name, id, email} = response
+                    const employee = new Employee(name, id, email);
                     teamArray.push(employee);
-                    console.log(`${response.name} has been added to the team!`);
+                    console.log(`${name} has been added to the team!`);
                     return getTeamMembers();
                   })
                   .catch(err => {console.log(err)});
@@ -102,15 +98,10 @@ const getTeamMembers = () => {
                 inquirer
                   .prompt(managerQuestions)
                   .then(function (response) {
-                    const manager = {
-                      name: response.name,
-                      id: response.id,
-                      email: response.email,
-                      officeNumber: response.officeNumber,
-                      role: 'Manager',
-                    };
+                    const {name, id, email} = response
+                    const manager = new Manager(name, id, email, officeNumber);
                     teamArray.push(manager);
-                    console.log(`${response.name} has been added to the team!`);
+                    console.log(`${name} has been added to the team!`);
                     return getTeamMembers();
                   })
                   .catch(err => {console.log(err)});
@@ -119,15 +110,10 @@ const getTeamMembers = () => {
                 inquirer
                   .prompt(engineerQuestions)
                   .then(function (response) {
-                    const engineer = {
-                      name: response.name,
-                      id: response.id,
-                      email: response.email,
-                      github: response.github,
-                      role: 'Engineer',
-                    };
+                    const {name, id, email} = response
+                    const engineer = new Engineer(name, id, email, github);
                     teamArray.push(engineer);
-                    console.log(`${response.name} has been added to the team!`);
+                    console.log(`${name} has been added to the team!`);
                     return getTeamMembers();
                   })
                   .catch(err => {console.log(err)});
@@ -136,15 +122,10 @@ const getTeamMembers = () => {
                 inquirer
                   .prompt(internQuestions)
                   .then(function (response) {
-                    const intern = {
-                      name: response.name,
-                      id: response.id,
-                      email: response.email,
-                      school: response.school,
-                      role: 'Intern',
-                    };
+                    const {name, id, email} = response
+                    const intern = new Intern(name, id, email, school);
                     teamArray.push(intern);
-                    console.log(`${response.name} has been added to the team!`);
+                    console.log(`${name} has been added to the team!`);
                     return getTeamMembers();
                   })
                   .catch(err => {console.log(err)});
@@ -157,6 +138,7 @@ const getTeamMembers = () => {
         // Call generateMember function to prompt the user if they would like to add another member
         generateMember();
       } else {
+        // Prompts the user on how they would like to sort the team members
         inquirer
           .prompt(
             {
