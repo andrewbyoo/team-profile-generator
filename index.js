@@ -88,6 +88,7 @@ const getTeamMembers = () => {
                   .then(function (response) {
                     const {name, id, email} = response
                     const employee = new Employee(name, id, email);
+                    employee.role = 'Employee';
                     teamArray.push(employee);
                     console.log(`${name} has been added to the team!`);
                     return getTeamMembers();
@@ -100,6 +101,7 @@ const getTeamMembers = () => {
                   .then(function (response) {
                     const {name, id, email, officeNumber} = response
                     const manager = new Manager(name, id, email, officeNumber);
+                    manager.role = 'Manager';
                     teamArray.push(manager);
                     console.log(`${name} has been added to the team!`);
                     return getTeamMembers();
@@ -112,6 +114,7 @@ const getTeamMembers = () => {
                   .then(function (response) {
                     const {name, id, email, github} = response
                     const engineer = new Engineer(name, id, email, github);
+                    engineer.role = 'Engineer';
                     teamArray.push(engineer);
                     console.log(`${name} has been added to the team!`);
                     return getTeamMembers();
@@ -124,6 +127,7 @@ const getTeamMembers = () => {
                   .then(function (response) {
                     const {name, id, email, school} = response
                     const intern = new Intern(name, id, email, school);
+                    intern.role = 'Intern';
                     teamArray.push(intern);
                     console.log(`${name} has been added to the team!`);
                     return getTeamMembers();
