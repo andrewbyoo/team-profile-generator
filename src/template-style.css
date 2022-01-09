@@ -1,0 +1,26 @@
+header {
+  background-color: #4499b6;
+  padding: 25px;
+  text-align: center;
+  color: #ffffff;
+  font-family: 'Vujahday Script';
+}
+
+h1 {
+  font-size: 75px;
+}
+
+body {
+  font-family: 'Caveat';
+  background-color: #add8e6;
+  font-size: 30px;
+}
+
+.card-header {
+  background-color: #CE4646;
+  color: #ffffff;
+}
+
+.list-group-item {
+  font-size: 20px;
+}
