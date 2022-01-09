@@ -6,6 +6,7 @@ const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const {generateBeforeCards, generateAfterCards} = require('./src/generateHTML');
 const generateCard = require('./src/generateCard');
+const generateCSS = require('./src/generateCSS');
 let teamArray = [];
 
 // Questions to be prompted for all new team members
@@ -58,7 +59,12 @@ const internQuestions = employeeQuestions.concat([
 const writeToHTML = data => {
   const fullHTML = generateBeforeCards + generateCard.generateCards(data) + generateAfterCards;
   fs.writeFile('./dist/index.html', fullHTML, (err) => err ? console.error(err) : console.log('Team index.html has been generated!'));
+  writeToCSS();
 };
+
+const writeToCSS = () => {
+  fs.writeFile('./dist/style.css', generateCSS.generateCSS, (err) => err ? console.error(err) : console.log('Stylesheet has been generated!'))
+}
 
 // Function to add team members
 const getTeamMembers = () => {
