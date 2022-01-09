@@ -167,27 +167,32 @@ const getTeamMembers = () => {
             },
           )
           .then(function (response) {
-            switch (response) {
-              case 'Name':
+            let sortedArray = [];
 
+            // Sorts the team array by the sort style the user selected
+            switch (response.sortStyle) {
+              case 'Name':
+                teamArray.sort((a, b) => a.name.localeCompare(b.name));
                 break;
               case 'Id number':
+                teamArray.sort((a, b) => a.id.localeCompare(b.id));
                 break;
               case 'Role':
-                // Sorts team members in order of Manager, Engineer, Employee, then Intern
-                let sortedArray = [];
+                // Sorts team members in order of Manager, Engineer, Employee, then Intern and outputs the array as the sortedArray variable
                 for (let i = 0; i < teamArray.length; i++) {if (teamArray[i].role == 'Manager') {sortedArray.push(teamArray[i])}};
                 for (let i = 0; i < teamArray.length; i++) {if (teamArray[i].role == 'Engineer') {sortedArray.push(teamArray[i])}};
                 for (let i = 0; i < teamArray.length; i++) {if (teamArray[i].role == 'Employee') {sortedArray.push(teamArray[i])}};
                 for (let i = 0; i < teamArray.length; i++) {if (teamArray[i].role == 'Intern') {sortedArray.push(teamArray[i])}};
                 break;
             }
+
+            // If sort is by role, redefine teamArray as sortedArray
+            (response.sortStyle === 'Role') ? (teamArray = sortedArray) : console.log('Sorted by name or id')
+
+            // Call to generate HTML should be in this return
+            return console.log(teamArray)
           })
           .catch(err => {console.log(err)});
-
-        // Call to generate the HTML
-        teamArray = sortedArray
-        return console.log(teamArray);
       };
     })
     .catch(err => {console.log(err)});
