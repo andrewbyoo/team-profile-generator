@@ -57,8 +57,8 @@ const internQuestions = employeeQuestions.concat([
 
 const writeToHTML = data => {
   const fullHTML = generateBeforeCards + generateCard.generateCards(data) + generateAfterCards;
-  fs.writeFile('./dist/index.html', fullHTML, (err) => err ? console.error(err) : console.log('Team index.html has been generated!'))
-}
+  fs.writeFile('./dist/index.html', fullHTML, (err) => err ? console.error(err) : console.log('Team index.html has been generated!'));
+};
 
 // Function to add team members
 const getTeamMembers = () => {
@@ -92,7 +92,7 @@ const getTeamMembers = () => {
                 inquirer
                   .prompt(employeeQuestions)
                   .then(function (response) {
-                    const {name, id, email} = response
+                    const {name, id, email} = response;
                     const employee = new Employee(name, id, email);
                     employee.role = 'Employee';
                     teamArray.push(employee);
@@ -105,7 +105,7 @@ const getTeamMembers = () => {
                 inquirer
                   .prompt(managerQuestions)
                   .then(function (response) {
-                    const {name, id, email, officeNumber} = response
+                    const {name, id, email, officeNumber} = response;
                     const manager = new Manager(name, id, email, officeNumber);
                     manager.role = 'Manager';
                     teamArray.push(manager);
@@ -118,7 +118,7 @@ const getTeamMembers = () => {
                 inquirer
                   .prompt(engineerQuestions)
                   .then(function (response) {
-                    const {name, id, email, github} = response
+                    const {name, id, email, github} = response;
                     const engineer = new Engineer(name, id, email, github);
                     engineer.role = 'Engineer';
                     teamArray.push(engineer);
@@ -131,7 +131,7 @@ const getTeamMembers = () => {
                 inquirer
                   .prompt(internQuestions)
                   .then(function (response) {
-                    const {name, id, email, school} = response
+                    const {name, id, email, school} = response;
                     const intern = new Intern(name, id, email, school);
                     intern.role = 'Intern';
                     teamArray.push(intern);
@@ -176,13 +176,13 @@ const getTeamMembers = () => {
                 for (let i = 0; i < teamArray.length; i++) {if (teamArray[i].role == 'Employee') {sortedArray.push(teamArray[i])}};
                 for (let i = 0; i < teamArray.length; i++) {if (teamArray[i].role == 'Intern') {sortedArray.push(teamArray[i])}};
                 break;
-            }
+            };
 
             // If sort is by role, redefine teamArray as sortedArray
-            (response.sortStyle === 'Role') ? (teamArray = sortedArray) : console.log('Sorted by name or id')
+            (response.sortStyle === 'Role') ? (teamArray = sortedArray) : console.log('Sorted by name or id');
 
             // Call to generate HTML should be in this return
-            return writeToHTML(teamArray)
+            return writeToHTML(teamArray);
           })
           .catch(err => {console.log(err)});
       };

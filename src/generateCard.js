@@ -17,7 +17,7 @@ const generateCards = data => {
       case 'Intern':
         roleSpecific = `School: ${data.school}`;
         break;
-    }
+    };
 
     let card = `<article class="card shadow-lg" style="width: 20rem;">
   <section class="card-header">
@@ -29,10 +29,10 @@ const generateCards = data => {
     <li class="list-group-item">Email: ${data.email}</li>
     <li class="list-group-item">${roleSpecific}</li>
   </ul>
-</article>`
+</article>`;
     allCards = allCards + card;
-  })
-  return allCards
+  });
+  return allCards;
 };
 
 module.exports = {generateCards};
