@@ -56,7 +56,7 @@ const internQuestions = employeeQuestions.concat([
 ]);
 
 const writeToHTML = data => {
-
+  generateCard.generateCards(data);
 }
 
 // Function to add team members
@@ -181,7 +181,7 @@ const getTeamMembers = () => {
             (response.sortStyle === 'Role') ? (teamArray = sortedArray) : console.log('Sorted by name or id')
 
             // Call to generate HTML should be in this return
-            return console.log(teamArray)
+            return writeToHTML(teamArray)
           })
           .catch(err => {console.log(err)});
       };
