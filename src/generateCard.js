@@ -1,43 +1,40 @@
-const fs = require('fs');
+const generateCards = data => {
+  let allCards = ``;
 
-const allCards = data => {
-  let card
-  return console.log(data)
-}
-
-const generateCard = data => {
-  for (let i = 0; i < data.length; i++) {
-    const teamMember = data[i]
+  data.forEach(function (data) {
     let roleSpecific = '';
 
-    switch (teamMember.role) {
+    switch (data.role) {
       case 'Employee':
         roleSpecific = '';
         break;
       case 'Manager':
-        roleSpecific = `Office Number: ${teamMember.officeNumber}`;
+        roleSpecific = `Office Number: ${data.officeNumber}`;
         break;
       case 'Engineer':
-        roleSpecific = `GitHub: ${teamMember.github}`;
+        roleSpecific = `GitHub: ${data.github}`;
         break;
       case 'Intern':
-        roleSpecific = `School: ${teamMember.school}`;
+        roleSpecific = `School: ${data.school}`;
         break;
     }
 
-    const card = `<article class="card" style="width: 20rem;">
+    let card = `<article class="card" style="width: 20rem;">
   <section class="card-header">
-    <h2 class="memberName">${teamMember.name}</h2>
-    <p class="memberRole">${teamMember.role}</p>
+    <h2 class="memberName">${data.name}</h2>
+    <p class="memberRole">${data.role}</p>
   </section>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">ID: ${teamMember.id}</li>
-    <li class="list-group-item">Email: ${teamMember.email}</li>
+    <li class="list-group-item">ID: ${data.id}</li>
+    <li class="list-group-item">Email: ${data.email}</li>
     <li class="list-group-item">${roleSpecific}</li>
   </ul>
 </article>`
-  }
+    allCards = allCards + card;
+    console.log(allCards)
+    console.log('_______________________')
+  })
 };
 
 module.exports = {allCards};
-module.exports = {generateCard};
+module.exports = {generateCards};
