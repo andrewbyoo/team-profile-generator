@@ -109,7 +109,7 @@ const getTeamMembers = () => {
                       role: employee.getRole(),
                     };
                     teamArray.push(employeeObject);
-                    console.log(`${name} has been added to the team!`);
+                    console.log(`${employeeObject.name} has been added to the team!`);
                     return getTeamMembers();
                   })
                   .catch(err => {console.log(err)});
@@ -128,7 +128,7 @@ const getTeamMembers = () => {
                       role: manager.getRole(),
                     };
                     teamArray.push(managerObject);
-                    console.log(`${name} has been added to the team!`);
+                    console.log(`${managerObject.name} has been added to the team!`);
                     return getTeamMembers();
                   })
                   .catch(err => {console.log(err)});
@@ -147,7 +147,7 @@ const getTeamMembers = () => {
                       role: engineer.getRole(),
                     };
                     teamArray.push(engineerObject);
-                    console.log(`${name} has been added to the team!`);
+                    console.log(`${engineerObject.name} has been added to the team!`);
                     return getTeamMembers();
                   })
                   .catch(err => {console.log(err)});
@@ -166,7 +166,7 @@ const getTeamMembers = () => {
                       role: intern.getRole(),
                     };
                     teamArray.push(internObject);
-                    console.log(`${name} has been added to the team!`);
+                    console.log(`${internObject.name} has been added to the team!`);
                     return getTeamMembers();
                   })
                   .catch(err => {console.log(err)});
