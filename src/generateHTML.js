@@ -4,4 +4,4 @@ const generateHTML = data => {
   return ``
 }
 
-module.exports = generateHTML;
+module.exports = {generateHTML};
