@@ -31,8 +31,8 @@ const generateCards = data => {
   </ul>
 </article>`
     allCards = allCards + card;
-    return allCards
   })
+  return allCards
 };
 
 module.exports = {generateCards};
