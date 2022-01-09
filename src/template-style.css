@@ -16,6 +16,11 @@ body {
   font-size: 30px;
 }
 
+.card {
+  min-width: 20rem;
+  margin: 5px;
+}
+
 .card-header {
   background-color: #CE4646;
   color: #ffffff;
@@ -23,7 +28,7 @@ body {
 }
 
 .memberName {
-  font-size: 30px;
+  font-size: 25px;
   font-family: 'Kalam';
 }
 
