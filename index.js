@@ -54,6 +54,10 @@ const internQuestions = employeeQuestions.concat([
   },
 ]);
 
+const writeToHTML = data => {
+
+}
+
 // Function to add team members
 const getTeamMembers = () => {
   inquirer
