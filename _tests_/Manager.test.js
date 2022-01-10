@@ -15,7 +15,7 @@ describe('Manager', () => {
     });
   });
   describe('email', () => {
-    it('calling getEmail() should return "Email: @@@@@"', () => {
+    it('calling getEmail() should return the email address', () => {
       const check = 'keanu@example.com';
       expect(testManager.getEmail()).toEqual(check);
     });

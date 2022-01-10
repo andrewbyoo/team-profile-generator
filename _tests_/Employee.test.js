@@ -20,7 +20,7 @@ describe('Employee', () => {
     });
   });
   describe('email', () => {
-    it('calling getEmail() should return "Email: @@@@@"', () => {
+    it('calling getEmail() should return the email address', () => {
       const check = 'johnTestEmail@example.com';
       expect(testEmployee.getEmail()).toEqual(check);
     });

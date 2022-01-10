@@ -15,7 +15,7 @@ describe('Intern', () => {
     });
   });
   describe('email', () => {
-    it('calling getEmail() should return "Email: @@@@@"', () => {
+    it('calling getEmail() should return the email address', () => {
       const check = 'neo@example.com';
       expect(testIntern.getEmail()).toEqual(check);
     });
