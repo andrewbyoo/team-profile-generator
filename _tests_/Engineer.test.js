@@ -15,13 +15,13 @@ describe('Engineer', () => {
     });
   });
   describe('email', () => {
-    it('calling getEmail() should return "Email: @@@@@"', () => {
+    it('calling getEmail() should return the email address', () => {
       const check = 'silverhand@example.com';
       expect(testEngineer.getEmail()).toEqual(check);
     });
   });
   describe('github', () => {
-    it('calling getGithub() should return "GitHub: *****', () => {
+    it('calling getGithub() should return the github username', () => {
       const check = 'johnny2077';
       expect(testEngineer.getGithub()).toEqual(check);
     });
